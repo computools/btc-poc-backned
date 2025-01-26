@@ -1,0 +1,1884 @@
+{
+	"info": {
+		"_postman_id": "0bc1c454-22b1-4242-82d1-6bcf9f3010c3",
+		"name": "BTC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15964674"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"access_token\", pm.response.json().access_token);",
+									"pm.environment.set(\"refresh_token\", pm.response.json().refresh_token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v1/login?username=adam&password=adam",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"login"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "adam"
+								},
+								{
+									"key": "password",
+									"value": "adam"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/v1/login?username=adam&password=adam",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"login"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "adam"
+										},
+										{
+											"key": "password",
+											"value": "adam"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 11:46:38 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2027"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access_token\": \"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJobmFYa3h5UENScUZjZ3JkeE1pOTBneGFBUHFFdEMzaW9maDJySUh4UF9RIn0.eyJleHAiOjE3Mzc3MTkyNTgsImlhdCI6MTczNzcxOTE5OCwianRpIjoiZDhmMDVkNGYtNjYyOS00MTVlLTg2ODAtN2I5Y2I1MDU3Njk5IiwiaXNzIjoiaHR0cDovLzAuMC4wLjA6MTE0MS9yZWFsbXMvbWFzdGVyIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjVjODkzMWNiLTA5ZmUtNDlhMC1iMGFmLWEwYzY2NmE1M2JkNSIsInR5cCI6IkJlYXJlciIsImF6cCI6InRlc3QiLCJzaWQiOiI3NWMwNmRiZS0wNGU0LTQzZDUtODkwYi0xODQ0OTljYWJlOTAiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbIi8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJkZWZhdWx0LXJvbGVzLW1hc3RlciIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJBZGFtIE5haWdlbHMiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZGFtIiwiZ2l2ZW5fbmFtZSI6IkFkYW0iLCJmYW1pbHlfbmFtZSI6Ik5haWdlbHMiLCJlbWFpbCI6ImFkYW1AZXhhbXBsZS5jb20ifQ.Cw9QXEQ5CGNX6Boe72bW1YFile0aITXMWd3SZ5JlDEsUxfY2_NpFz92RZ1jHnANPlmE9fDLqkv4k3XcgMqePgjFyu1yixdSsA_5VsQ3VDIyl_Vh0q_et2wPmNkszYM704ODZSpxkxH7y2EpJtSPMncHkIgRSdn8tf4v7oe-ciIbiEJ-CQd7zv5JR6X5LY6w3rXARSFc4o-f5Kd9bFM2O-ya9vTgGCzuSWnBRj_3guIbOgkkIRCFv1ipHZhd4LHVUy0o2o-yZsiwICoToj9SReTVqdeSTis3GJRBQ7u7o-yBNTjihaK6aeq2vo-A8pDCAMsME6fr7XUPI2R4iYqR3aA\",\n    \"refresh_token\": \"eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkOGE3YjNlOC05ZmQ2LTRkMmYtYjYzYS04Mzk1MTc0OTMxMWQifQ.eyJleHAiOjE3Mzc3MjA5OTgsImlhdCI6MTczNzcxOTE5OCwianRpIjoiNjM5NzJjMjktZDcyZi00YjhkLWE1ZWUtNzNkYWNmMDM5NmRjIiwiaXNzIjoiaHR0cDovLzAuMC4wLjA6MTE0MS9yZWFsbXMvbWFzdGVyIiwiYXVkIjoiaHR0cDovLzAuMC4wLjA6MTE0MS9yZWFsbXMvbWFzdGVyIiwic3ViIjoiNWM4OTMxY2ItMDlmZS00OWEwLWIwYWYtYTBjNjY2YTUzYmQ1IiwidHlwIjoiUmVmcmVzaCIsImF6cCI6InRlc3QiLCJzaWQiOiI3NWMwNmRiZS0wNGU0LTQzZDUtODkwYi0xODQ0OTljYWJlOTAiLCJzY29wZSI6Im9wZW5pZCBhY3Igc2VydmljZV9hY2NvdW50IHByb2ZpbGUgZW1haWwgcm9sZXMgYmFzaWMgd2ViLW9yaWdpbnMifQ.PWL_VBwBpCsRO_83xMKzccskUNkqRNryhyYs4RO66cCv3-otLaA8sKrWKvJZXAzfoVE28u3OSBiyp3TtTsaoew\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Refresh token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"access_token\", pm.response.json().access_token);",
+									"pm.environment.set(\"refresh_token\", pm.response.json().refresh_token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v1/refresh?refresh_token={{refresh_token}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"refresh"
+							],
+							"query": [
+								{
+									"key": "refresh_token",
+									"value": "{{refresh_token}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/v1/refresh?refresh_token={{refresh_token}}",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"refresh"
+									],
+									"query": [
+										{
+											"key": "refresh_token",
+											"value": "{{refresh_token}}"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 11:40:50 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2005"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access_token\": \"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJobmFYa3h5UENScUZjZ3JkeE1pOTBneGFBUHFFdEMzaW9maDJySUh4UF9RIn0.eyJleHAiOjE3Mzc3MTg5MTAsImlhdCI6MTczNzcxODg1MCwianRpIjoiYzU4MjExZWMtMWY2Ny00MGZhLTlkYmYtN2UxYzFhNTFmYzVjIiwiaXNzIjoiaHR0cDovLzAuMC4wLjA6MTE0MS9yZWFsbXMvbWFzdGVyIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6IjVjODkzMWNiLTA5ZmUtNDlhMC1iMGFmLWEwYzY2NmE1M2JkNSIsInR5cCI6IkJlYXJlciIsImF6cCI6InRlc3QiLCJzaWQiOiJkY2JiMDkxNC1jNTA4LTRjNzItYjY1YS00Y2ZiODM3ZDQ5YWEiLCJhY3IiOiIxIiwiYWxsb3dlZC1vcmlnaW5zIjpbIi8qIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJkZWZhdWx0LXJvbGVzLW1hc3RlciIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJBZGFtIE5haWdlbHMiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZGFtIiwiZ2l2ZW5fbmFtZSI6IkFkYW0iLCJmYW1pbHlfbmFtZSI6Ik5haWdlbHMiLCJlbWFpbCI6ImFkYW1AZXhhbXBsZS5jb20ifQ.dfuv0T-mNWprRYAOoiEwMN-GoY8-dYCcEgt56VccnFtZDgOl9aolAavXqQtTeNkgPytys4BlUTm0TlP5Z1pkQfxZgblfDdBIn_UcsseqXNcF1Bq7O5jwht21GLoC1jr8oIQlfPKfAZR_h6QCFjmoJKNXfha1GQG6Ju-04oGREJmDOkXM-KwKo3K2Kl4GVcZsT1jfwGHQmh_KWFDvnXB5F_4n-oMnKvoAjLcmsx1EO2Fh6mw7VhPXcDQhWYPS-RDf9jmFKjakIfbb0P4nFW5jLbFRipxNBQ47AoHrfuA15FI_hps3WgwWAWEfcPZPZM6PEWhN9aT_EDG3Ms24XohC0Q\",\n    \"refresh_token\": \"eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJkOGE3YjNlOC05ZmQ2LTRkMmYtYjYzYS04Mzk1MTc0OTMxMWQifQ.eyJleHAiOjE3Mzc3MjA2NTAsImlhdCI6MTczNzcxODg1MCwianRpIjoiZDg3ZjVlM2EtM2VmOC00Yjg3LThiMDgtYjgxMzFhMTgxNWZkIiwiaXNzIjoiaHR0cDovLzAuMC4wLjA6MTE0MS9yZWFsbXMvbWFzdGVyIiwiYXVkIjoiaHR0cDovLzAuMC4wLjA6MTE0MS9yZWFsbXMvbWFzdGVyIiwic3ViIjoiNWM4OTMxY2ItMDlmZS00OWEwLWIwYWYtYTBjNjY2YTUzYmQ1IiwidHlwIjoiUmVmcmVzaCIsImF6cCI6InRlc3QiLCJzaWQiOiJkY2JiMDkxNC1jNTA4LTRjNzItYjY1YS00Y2ZiODM3ZDQ5YWEiLCJzY29wZSI6Im9wZW5pZCBhY3IgcHJvZmlsZSBlbWFpbCByb2xlcyBiYXNpYyB3ZWItb3JpZ2lucyJ9.c8ts4ZfnSDmQVec9J2f8PJwMfug8AwNf6XehzlOxGzUZS7o1pUkOeA0zkYvPKoXTRsD7GRIp5zptOrD0USdKEg\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v1/logout?refresh_token={{refresh_token}}",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"logout"
+							],
+							"query": [
+								{
+									"key": "refresh_token",
+									"value": "{{refresh_token}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/v1/logout?refresh_token={{refresh_token}}",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"logout"
+									],
+									"query": [
+										{
+											"key": "refresh_token",
+											"value": "{{refresh_token}}"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 11:47:21 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Company",
+			"item": [
+				{
+					"name": "Get company",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v1/companies/:id",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/v1/companies/:id",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"companies",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 13:18:29 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "234"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"public_id\": \"some_id\",\n    \"name\": \"company1\",\n    \"short_name\": \"cmp1\",\n    \"physical_address\": \"somewhere\",\n    \"physical_city\": \"somewhere\",\n    \"physical_zip\": \"somewhere\",\n    \"postal_address\": \"somewhere\",\n    \"postal_city\": \"somewhere\",\n    \"postal_zip\": \"somewhere\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get companies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v1/companies",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/v1/companies",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"companies"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 13:18:38 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "938"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 3,\n        \"public_id\": \"some_id2\",\n        \"name\": \"company\",\n        \"short_name\": \"cmp\",\n        \"physical_address\": \"somewhere\",\n        \"physical_city\": \"somewhere\",\n        \"physical_zip\": \"somewhere\",\n        \"postal_address\": \"somewhere\",\n        \"postal_city\": \"somewhere\",\n        \"postal_zip\": \"somewhere\"\n    },\n    {\n        \"id\": 5,\n        \"public_id\": \"some_id3\",\n        \"name\": \"company\",\n        \"short_name\": \"cmp\",\n        \"physical_address\": \"somewhere\",\n        \"physical_city\": \"somewhere\",\n        \"physical_zip\": \"somewhere\",\n        \"postal_address\": \"somewhere\",\n        \"postal_city\": \"somewhere\",\n        \"postal_zip\": \"somewhere\"\n    },\n    {\n        \"id\": 6,\n        \"public_id\": \"some_id4\",\n        \"name\": \"company\",\n        \"short_name\": \"cmp\",\n        \"physical_address\": \"somewhere\",\n        \"physical_city\": \"somewhere\",\n        \"physical_zip\": \"somewhere\",\n        \"postal_address\": \"somewhere\",\n        \"postal_city\": \"somewhere\",\n        \"postal_zip\": \"somewhere\"\n    },\n    {\n        \"id\": 1,\n        \"public_id\": \"some_id\",\n        \"name\": \"company1\",\n        \"short_name\": \"cmp1\",\n        \"physical_address\": \"somewhere\",\n        \"physical_city\": \"somewhere\",\n        \"physical_zip\": \"somewhere\",\n        \"postal_address\": \"somewhere\",\n        \"postal_city\": \"somewhere\",\n        \"postal_zip\": \"somewhere\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create company",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"public_id\": \"some_id\",\n    \"name\": \"company\",\n    \"short_name\": \"cmp\",\n    \"physical_address\": \"somewhere\",\n    \"physical_city\": \"somewhere\",\n    \"physical_zip\": \"somewhere\",\n    \"postal_address\": \"somewhere\",\n    \"postal_city\": \"somewhere\",\n    \"postal_zip\": \"somewhere\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/v1/companies",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"public_id\": \"some_id6\",\n    \"name\": \"company\",\n    \"short_name\": \"cmp\",\n    \"physical_address\": \"somewhere\",\n    \"physical_city\": \"somewhere\",\n    \"physical_zip\": \"somewhere\",\n    \"postal_address\": \"somewhere\",\n    \"postal_city\": \"somewhere\",\n    \"postal_zip\": \"somewhere\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/api/v1/companies",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"companies"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 13:19:03 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "233"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 7,\n    \"public_id\": \"some_id6\",\n    \"name\": \"company\",\n    \"short_name\": \"cmp\",\n    \"physical_address\": \"somewhere\",\n    \"physical_city\": \"somewhere\",\n    \"physical_zip\": \"somewhere\",\n    \"postal_address\": \"somewhere\",\n    \"postal_city\": \"somewhere\",\n    \"postal_zip\": \"somewhere\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update company",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"public_id\": \"some_id\",\n    \"name\": \"company1\",\n    \"short_name\": \"cmp1\",\n    \"physical_address\": \"somewhere\",\n    \"physical_city\": \"somewhere\",\n    \"physical_zip\": \"somewhere\",\n    \"postal_address\": \"somewhere\",\n    \"postal_city\": \"somewhere\",\n    \"postal_zip\": \"somewhere\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/v1/companies/:id",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"public_id\": \"some_id\",\n    \"name\": \"company1\",\n    \"short_name\": \"cmp1\",\n    \"physical_address\": \"somewhere\",\n    \"physical_city\": \"somewhere\",\n    \"physical_zip\": \"somewhere\",\n    \"postal_address\": \"somewhere\",\n    \"postal_city\": \"somewhere\",\n    \"postal_zip\": \"somewhere\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/api/v1/companies/:id",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"companies",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 13:19:30 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "234"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"public_id\": \"some_id\",\n    \"name\": \"company1\",\n    \"short_name\": \"cmp1\",\n    \"physical_address\": \"somewhere\",\n    \"physical_city\": \"somewhere\",\n    \"physical_zip\": \"somewhere\",\n    \"postal_address\": \"somewhere\",\n    \"postal_city\": \"somewhere\",\n    \"postal_zip\": \"somewhere\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete company",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v1/companies/:id",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"companies",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/v1/companies/:id",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"companies",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 13:19:39 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v1/users/:id",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/v1/users/:id",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 13:32:41 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "103"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"first_name\": \"Adam\",\n    \"last_name\": \"Naigels\",\n    \"position\": \"Owner\",\n    \"company_id\": 1,\n    \"image_url\": \"TODO\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get users by company id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v1/users?company_id=1",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							],
+							"query": [
+								{
+									"key": "company_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/v1/users?company_id=1",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									],
+									"query": [
+										{
+											"key": "company_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 13:32:49 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "105"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"first_name\": \"Adam\",\n        \"last_name\": \"Naigels\",\n        \"position\": \"Owner\",\n        \"company_id\": 1,\n        \"image_url\": \"TODO\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"adam\",\n    \"password\": \"adam\",\n    \"email\": \"adam@example.com\",\n    \"first_name\": \"Adam\",\n    \"last_name\": \"Naigels\",\n    \"position\": \"Owner\",\n    \"company_id\": 1,\n    \"image_url\": \"TODO\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/v1/users",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"adam\",\n    \"password\": \"adam\",\n    \"email\": \"adam@example.com\",\n    \"first_name\": \"Adam\",\n    \"last_name\": \"Naigels\",\n    \"position\": \"Owner\",\n    \"company_id\": 1,\n    \"image_url\": \"TODO\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/api/v1/users",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 13:32:02 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "103"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 4,\n    \"first_name\": \"Adam\",\n    \"last_name\": \"Naigels\",\n    \"position\": \"Owner\",\n    \"company_id\": 1,\n    \"image_url\": \"TODO\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Adam 'Mouse'\",\n    \"last_name\": \"Naigels\",\n    \"position\": \"Owner of company\",\n    \"company_id\": 1,\n    \"image_url\": \"TODO\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/v1/users/:id",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"first_name\": \"Adam 'Mouse'\",\n    \"last_name\": \"Naigels\",\n    \"position\": \"Owner of company\",\n    \"company_id\": 1,\n    \"image_url\": \"TODO\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/api/v1/users/:id",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 13:34:33 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "122"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"first_name\": \"Adam 'Mouse'\",\n    \"last_name\": \"Naigels\",\n    \"position\": \"Owner of company\",\n    \"company_id\": 1,\n    \"image_url\": \"TODO\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v1/users/:id",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/v1/users/:id",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"users",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 13:34:45 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Financial report",
+			"item": [
+				{
+					"name": "Get financial report",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v1/reports/:id",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reports",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/v1/reports/:id",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"reports",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 13:35:43 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "66"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"report 1\",\n    \"year\": 2025,\n    \"company_id\": 1,\n    \"url\": \"TODO\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get financial reports by company id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v1/reports?company_id=1",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reports"
+							],
+							"query": [
+								{
+									"key": "company_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/v1/reports?company_id=1",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"reports"
+									],
+									"query": [
+										{
+											"key": "company_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 13:35:51 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "68"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"report 1\",\n        \"year\": 2025,\n        \"company_id\": 1,\n        \"url\": \"TODO\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create financial report",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"report 1\",\n    \"year\": 2025,\n    \"company_id\": 1,\n    \"url\": \"TODO\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/v1/reports",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reports"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"report 1\",\n    \"year\": 2025,\n    \"company_id\": 1,\n    \"url\": \"TODO\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/api/v1/reports",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"reports"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 13:35:33 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "66"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"report 1\",\n    \"year\": 2025,\n    \"company_id\": 1,\n    \"url\": \"TODO\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update financial report",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"report 3\",\n    \"year\": 2025,\n    \"url\": \"TODO\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/v1/reports/:id",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reports",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"report 3\",\n    \"year\": 2025,\n    \"url\": \"TODO\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/api/v1/reports/:id",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"reports",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 13:36:12 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "66"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"name\": \"report 3\",\n    \"year\": 2025,\n    \"company_id\": 1,\n    \"url\": \"TODO\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete financial report",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v1/reports/:id",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"reports",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/v1/reports/:id",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"reports",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 23 Jan 2025 19:00:46 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Company performance",
+			"item": [
+				{
+					"name": "Get company performance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v1/company-reports/:id",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"company-reports",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/v1/company-reports/:id",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"company-reports",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 13:43:25 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "219"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"company_id\": 1,\n    \"quarter\": 1,\n    \"year\": 2025,\n    \"income\": 10023.65,\n    \"total_wage_bill\": 10023.65,\n    \"executive_wage_bill\": 10023.65,\n    \"total_staff\": 10,\n    \"total_executive\": 1,\n    \"total_assets\": 10023.65,\n    \"operational_expenditure\": 10023.65\n}"
+						}
+					]
+				},
+				{
+					"name": "Get company performance by company id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v1/company-reports?company_id=1",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"company-reports"
+							],
+							"query": [
+								{
+									"key": "company_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/v1/company-reports?company_id=1",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"company-reports"
+									],
+									"query": [
+										{
+											"key": "company_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 13:43:15 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "221"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"company_id\": 1,\n        \"quarter\": 1,\n        \"year\": 2025,\n        \"income\": 10023.65,\n        \"total_wage_bill\": 10023.65,\n        \"executive_wage_bill\": 10023.65,\n        \"total_staff\": 10,\n        \"total_executive\": 1,\n        \"total_assets\": 10023.65,\n        \"operational_expenditure\": 10023.65\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create company performance",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"company_id\": 1,\n    \"quarter\": 1,\n    \"year\": 2025,\n    \"income\": 10023.65,\n    \"total_wage_bill\": 10023.65,\n    \"executive_wage_bill\": 10023.65,\n    \"total_staff\": 10,\n    \"total_executive\": 1,\n    \"total_assets\": 10023.65,\n    \"operational_expenditure\": 10023.65\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/v1/company-reports",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"company-reports"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"company_id\": 1,\n    \"quarter\": 1,\n    \"year\": 2025,\n    \"income\": 10023.65,\n    \"total_wage_bill\": 10023.65,\n    \"executive_wage_bill\": 10023.65,\n    \"total_staff\": 10,\n    \"total_executive\": 1,\n    \"total_assets\": 10023.65,\n    \"operational_expenditure\": 10023.65\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/api/v1/company-reports",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"company-reports"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 13:43:04 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "219"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"company_id\": 1,\n    \"quarter\": 1,\n    \"year\": 2025,\n    \"income\": 10023.65,\n    \"total_wage_bill\": 10023.65,\n    \"executive_wage_bill\": 10023.65,\n    \"total_staff\": 10,\n    \"total_executive\": 1,\n    \"total_assets\": 10023.65,\n    \"operational_expenditure\": 10023.65\n}"
+						}
+					]
+				},
+				{
+					"name": "Update company performance",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"company_id\": 1,\n    \"quarter\": 2,\n    \"year\": 2025,\n    \"income\": 999999.65,\n    \"total_wage_bill\": 999999.65,\n    \"executive_wage_bill\": 999999.65,\n    \"total_staff\": 10,\n    \"total_executive\": 1,\n    \"total_assets\": 999999.65,\n    \"operational_expenditure\": 999999.65\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/api/v1/company-reports/:id",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"company-reports",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"company_id\": 1,\n    \"quarter\": 2,\n    \"year\": 2025,\n    \"income\": 999999.65,\n    \"total_wage_bill\": 999999.65,\n    \"executive_wage_bill\": 999999.65,\n    \"total_staff\": 10,\n    \"total_executive\": 1,\n    \"total_assets\": 999999.65,\n    \"operational_expenditure\": 999999.65\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{server}}/api/v1/company-reports/:id",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"company-reports",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 13:43:34 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "224"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"company_id\": 1,\n    \"quarter\": 2,\n    \"year\": 2025,\n    \"income\": 999999.65,\n    \"total_wage_bill\": 999999.65,\n    \"executive_wage_bill\": 999999.65,\n    \"total_staff\": 10,\n    \"total_executive\": 1,\n    \"total_assets\": 999999.65,\n    \"operational_expenditure\": 999999.65\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete company performance",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/api/v1/company-reports/:id",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"company-reports",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/v1/company-reports/:id",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"company-reports",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Fri, 24 Jan 2025 13:43:56 GMT"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}

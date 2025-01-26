@@ -1,0 +1,82 @@
+version: '3'
+
+dotenv: [ '.env' ]
+
+tasks:
+  run:
+    desc: Build and run the go binary.
+    deps: [ database-up, keycloak-up ]
+    cmd: go run main.go
+
+  container-run:
+    desc: Run application in the docker or podman container. It will also start up the database.
+    deps: [ database-up, keycloak-up ]
+    dir: '{{.USER_WORKING_DIR}}/containers'
+    aliases: [ crun ]
+    cmd: bash -c "$RUNNER compose -f service.yml up -d --no-deps --build"
+
+  container-stop:
+    desc: Stop docker or podman container with running application.
+    dir: '{{.USER_WORKING_DIR}}/containers'
+    aliases: [ cstop ]
+    cmd: bash -c "$RUNNER compose -f service.yml down"
+
+  start-essentials:
+    desc: Start all containers to correct service work.
+    aliases: [ se ]
+    cmds:
+      - task: database-up
+      - task: keycloak-up
+
+  stop-essentials:
+    desc: Stop all containers.
+    aliases: [ sed ]
+    cmds:
+      - task: database-down
+      - task: keycloak-down
+
+  database-up:
+    desc: Create the database container throw docker or podman.
+    dir: '{{.USER_WORKING_DIR}}/containers'
+    aliases: [ db ]
+    cmd: bash -c "$RUNNER compose -f database.yml up -d"
+
+  database-down:
+    desc: Drop the database container throw docker or podman.
+    dir: '{{.USER_WORKING_DIR}}/containers'
+    aliases: [ dbd ]
+    cmd: bash -c "$RUNNER compose -f database.yml down"
+
+  keycloak-up:
+    desc: Create the keycloak container throw docker or podman.
+    dir: "{{.USER_WORKING_DIR}}/containers"
+    aliases: [ kc ]
+    cmd: bash -c "$RUNNER compose -f keycloak.yaml up -d"
+
+  keycloak-down:
+    desc: Drop the keycloak container throw docker or podman.
+    dir: "{{.USER_WORKING_DIR}}/containers"
+    aliases: [ kcd ]
+    cmd: bash -c "$RUNNER compose -f keycloak.yaml down"
+
+  lint:
+    desc: Runs golangci-lint
+    cmd: golangci-lint run ./...
+
+  format:
+    desc: Auto formating golang code
+    aliases: [ f, fmt ]
+    cmds:
+      - go install mvdan.cc/gofumpt@latest
+      - go install github.com/daixiang0/gci@latest
+      - go mod tidy
+      - gofumpt -l -w .
+      - gci write --skip-generated -s standard -s default -s "prefix(btc-backend)" -s blank -s dot .
+
+  upgrade-libraries:
+    desc: Upgrades all libraries that used on the project
+    aliases: [ upgr ]
+    cmds:
+      - go get -u go
+      - go get -u ./...
+      - go mod tidy

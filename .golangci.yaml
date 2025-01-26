@@ -1,0 +1,62 @@
+run:
+  concurrency: 6
+
+issues:
+  exclude-rules:
+    - linters:
+        - iface
+      text: "contains identical methods or type constraints from another interface"
+      path: app/interfaces.go
+    - linters:
+        - dupl
+      text: "lines are duplicate of"
+      path: server/handlers
+  exclude-dirs:
+    - .git
+    - .github
+    - .idea
+    - .run
+    - .vscode
+    - containers
+    - diagrams
+    - graphql
+    - kuber
+    - migrations
+    - proto
+    - requests
+    - scripts
+
+linters:
+  enable-all: true
+  disable:
+    - containedctx
+    - contextcheck
+    - cyclop
+    - depguard
+    - dogsled
+    - exhaustive
+    - exhaustruct
+    - exportloopref
+    - forbidigo
+    - funlen
+    - gci
+    - gochecknoglobals
+    - gochecknoinits
+    - gocognit
+    - gocyclo
+    - godox
+    - gofumpt
+    - goimports
+    - gomodguard
+    - goprintffuncname
+    - ireturn
+    - lll
+    - nlreturn
+    - nonamedreturns
+    - paralleltest
+    - tagalign
+    - tagliatelle
+    - testpackage
+    - varnamelen
+    - wrapcheck
+    - wsl
