@@ -10,7 +10,6 @@ import (
 type Config struct {
 	ServerConfig
 	DatabaseConfig
-	S3Config
 	KeyCloakConfig
 }
 
@@ -23,13 +22,6 @@ type ServerConfig struct {
 type DatabaseConfig struct {
 	DSN           string `env:"DATABASE_DSN"`
 	MigrationPath string `env:"DATABASE_MIGRATION_PATH" envDefault:"migrations"`
-}
-
-type S3Config struct {
-	AccessKey     string `env:"S3_ACCESS_KEY"`
-	SecretKey     string `env:"S3_SECRET_KEY"`
-	Region        string `env:"S3_REGION" envDefault:"us-east-1"`
-	CompanyBucket string `env:"S3_COMPANY_BUCKET" envDefault:"company-data"`
 }
 
 type KeyCloakConfig struct {
