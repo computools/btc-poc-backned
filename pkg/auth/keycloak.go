@@ -10,18 +10,31 @@ import (
 )
 
 type Keycloak struct {
-	cfg        *config.KeyCloakConfig
-	client     *gocloak.GoCloak
-	adminToken *gocloak.JWT
+	cfg    *config.KeyCloakConfig
+	client *gocloak.GoCloak
 }
 
 func (k *Keycloak) CreateUser(ctx context.Context, user User, password string) (string, error) {
-	userID, err := k.client.CreateUser(ctx, k.adminToken.AccessToken, k.cfg.Realm, user.toGoCloak())
+	adminToken, err := k.client.LoginClient(ctx, k.cfg.ClientID, k.cfg.ClientCredentials, k.cfg.Realm)
+	if err != nil {
+		return "", errors.Join(ErrLoginClient, err)
+	}
+
+	userID, err := k.client.CreateUser(ctx, adminToken.AccessToken, k.cfg.Realm, user.toGoCloak())
 	if err != nil {
 		return "", errors.Join(ErrCreateUserFailed, err)
 	}
 
-	return userID, k.client.SetPassword(ctx, k.adminToken.AccessToken, userID, k.cfg.Realm, password, false)
+	return userID, k.client.SetPassword(ctx, adminToken.AccessToken, userID, k.cfg.Realm, password, false)
+}
+
+func (k *Keycloak) DeleteUser(ctx context.Context, userID string) error {
+	adminToken, err := k.client.LoginClient(ctx, k.cfg.ClientID, k.cfg.ClientCredentials, k.cfg.Realm)
+	if err != nil {
+		return errors.Join(ErrLoginClient, err)
+	}
+
+	return k.client.DeleteUser(ctx, adminToken.AccessToken, k.cfg.Realm, userID)
 }
 
 func (k *Keycloak) Login(ctx context.Context, user, password string) (JWT, error) {
@@ -59,10 +72,9 @@ func (k *Keycloak) Logout(ctx context.Context, refreshToken string) error {
 	return k.client.Logout(ctx, k.cfg.ClientID, k.cfg.ClientCredentials, k.cfg.Realm, refreshToken)
 }
 
-func (k *Keycloak) Start(ctx context.Context) (err error) {
+func (k *Keycloak) Start(_ context.Context) error {
 	k.client = gocloak.NewClient(k.cfg.Addr)
-	k.adminToken, err = k.client.LoginClient(ctx, k.cfg.ClientID, k.cfg.ClientCredentials, k.cfg.Realm)
-	return
+	return nil
 }
 
 func (k *Keycloak) Stop(_ context.Context) error {

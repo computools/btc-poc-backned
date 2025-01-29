@@ -32,11 +32,12 @@ func (User) TableName() string {
 }
 
 type FinancialReports struct {
-	ID        int64
-	Name      string
-	Year      int64
-	CompanyID int64
-	URL       string
+	ID         int64
+	Name       string
+	Year       int64
+	CompanyID  int64
+	URL        string
+	PreviewURL string
 }
 
 func (FinancialReports) TableName() string {

@@ -35,6 +35,16 @@ func (s *Service) UpdateUser(ctx context.Context, user User) (User, error) {
 }
 
 func (s *Service) DeleteUser(ctx context.Context, id int64) error {
+	user, err := s.db.GetUser(ctx, id)
+	if err != nil {
+		return err
+	}
+
+	err = s.auth.DeleteUser(ctx, user.KeycloakID)
+	if err != nil {
+		return err
+	}
+
 	return s.db.DeleteUser(ctx, id)
 }
 

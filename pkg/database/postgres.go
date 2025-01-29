@@ -134,9 +134,10 @@ func (p *Postgres) UpdateFinancialReport(ctx context.Context, financialReport Fi
 		Clauses(clause.Returning{}).
 		Where("id = ?", financialReport.ID).
 		Updates(map[string]any{
-			"name": financialReport.Name,
-			"year": financialReport.Year,
-			"url":  financialReport.URL,
+			"name":        financialReport.Name,
+			"year":        financialReport.Year,
+			"url":         financialReport.URL,
+			"preview_url": financialReport.PreviewURL,
 		}).Error
 	return financialReport, err
 }

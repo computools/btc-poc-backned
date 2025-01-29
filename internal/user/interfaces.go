@@ -17,4 +17,5 @@ type Database interface {
 
 type Auth interface {
 	CreateUser(ctx context.Context, user auth.User, password string) (string, error)
+	DeleteUser(ctx context.Context, userID string) error
 }
